@@ -1,4 +1,4 @@
-name: Test Project
+name: Deploy Project Parallel
 on: push
 jobs:
   tests:
