@@ -1,4 +1,4 @@
-name: Solution with 1 job
+name: Solution 1 with 1 job
 on: push
 jobs:
   deploy:

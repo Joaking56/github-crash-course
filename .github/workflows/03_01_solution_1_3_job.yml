@@ -1,0 +1,43 @@
+name: Solution 1 with 3 job
+on: workflow_dispatch
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "03"
+    steps:
+    - name: Get Code to my Runner from Repo
+      uses: actions/checkout@v7
+    - name: Dependencies Install to Runner
+      run: npm ci
+    - name: Linting Phase
+      run: npm run lint
+  tests:
+    needs: lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "03"
+    steps:
+    - name: Get Code to my Runner from Repo
+      uses: actions/checkout@v7
+    - name: Dependencies Install to Runner
+      run: npm ci
+    - name: Testing Phase
+      run: npm test
+  deployment:
+    needs: tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "03"
+    steps:
+    - name: Get Code to my Runner from Repo
+      uses: actions/checkout@v7
+    - name: Dependencies Install to Runner
+      run: npm ci
+    - name: Build Project
+      run: npm run build  
+    - name: Deploy
+      run: echo "Deploying ..."
