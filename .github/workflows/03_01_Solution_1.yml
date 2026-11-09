@@ -1,0 +1,21 @@
+name: Solution with 1 job
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "03"
+    steps:
+    - name: Get Code to my Runner from Repo
+      uses: actions/checkout@v7
+    - name: Dependencies Install to Runner
+      run: npm ci
+    - name: Linting Phase
+      run: npm run lint
+    - name: Testing Phase
+      run: npm test
+    - name: Deploying Phase
+      run: npm run build
+    - name: Deploy Code
+      run: echo "Deploying..."

@@ -1,4 +1,4 @@
-name: 03 - Test, Lint And Deploy
+name: 03 - Test, Lint And Deploy Separated
 on: workflow_dispatch
 jobs:
   lint:
