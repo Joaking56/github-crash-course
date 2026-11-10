@@ -1,0 +1,11 @@
+name: Solution 2
+on: issues
+jobs:
+  output-info:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "03"
+  steps:
+    - name: Output Event Details
+      run: echo "${{ toJSON(github.event) }}"
